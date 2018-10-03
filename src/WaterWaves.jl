@@ -17,16 +17,15 @@ dispersion_rel_evan(k,m0,h) = m0 + k*sin(k*h)/cos(k*h);
 # First derivative of dispersion relation for water waves (evanescent modes)
 dispersion_rel_evan_1st_der(k,m0,h) = -( m0 - h*(k*k + m0*m0) )/k;
 
-
 function waveNumber(imode,m0::T,h::T) where T
     if imode==0
        f(x) = dispersion_rel(x,m0,h)
        df(x) = dispersio_rel_1st_der(x,m0,h)
        ki=Roots.newton(f, df, m0);
     else
-       f(x) = dispersion_rel_evan(x,m0,h)
-       df(x) = dispersion_rel_evan_1st_der(x,m0,h)
-       ki = Roots.newton(f, df,imode*pi/h);
+       fa(x) = dispersion_rel_evan(x,m0,h)
+       dfa(x) = dispersion_rel_evan_1st_der(x,m0,h)
+       ki = Roots.newton(fa, dfa,imode*pi/h);
     end
     return ki;
 end
