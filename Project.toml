@@ -1,7 +1,7 @@
 authors = ["Theo Gerostathis <theo.gerostathis@gmail.com>"]
 name = "WaterWaves"
 uuid = "34ce3ba0-c742-11e8-0774-29668d39116c"
-version = "0.1.0"
+version = "0.0.1"
 
 [deps]
 Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
